@@ -55,3 +55,27 @@ canvas.addEventListener('click', (e) => {
 });
 
 drawTriangle();
+
+function isInsideTriangle(x, y) {
+    // Vertices of your triangle
+    const x1 = 150, y1 = 50;  // Top
+    const x2 = 50,  y2 = 250; // Left
+    const x3 = 250, y3 = 250; // Right
+
+    const area = 0.5 * (-y2 * x3 + y1 * (-x2 + x3) + x1 * (y2 - y3) + x2 * y3);
+    const s = 1 / (2 * area) * (y1 * x3 - x1 * y3 + (y3 - y1) * x + (x1 - x3) * y);
+    const t = 1 / (2 * area) * (x1 * y2 - y1 * x2 + (y1 - y2) * x + (x2 - x1) * y);
+
+    return s > 0 && t > 0 && (1 - s - t) > 0;
+}
+
+canvas.addEventListener('click', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    // ONLY continue if inside the triangle
+    if (!isInsideTriangle(x, y)) return;
+
+    // ... rest of your existing logic
+});
