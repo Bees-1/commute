@@ -41,16 +41,16 @@ canvas.addEventListener('click', (e) => {
     drawTriangle(x, y);
 
     if (dist < radius) {
-        map.src = 'center_route.png'; // The balanced zone
+        map.src = '23.png'; // The balanced zone
     } else {
         const angle = Math.atan2(dy, dx);
         // Map the 360 degrees into 6 sectors
-        if (angle > -0.5 && angle < 0.5) map.src = '45.png';        // Right point
-        else if (angle >= 0.5 && angle < 1.5) map.src = '45_M1.png'; // Bottom Side
-        else if (angle >= 1.5 && angle < 2.5) map.src = 'M1.png';    // Left Point
-        else if (angle >= 2.5 || angle < -2.5) map.src = 'M1_23Q.png'; // Left Side
+        if (angle > -0.5 && angle < 0.5) map.src = 'M1.png';        // Right point
+        else if (angle >= 0.5 && angle < 1.5) map.src = 'M1.png'; // Bottom Side
+        else if (angle >= 1.5 && angle < 2.5) map.src = '23.png';    // Left Point
+        else if (angle >= 2.5 || angle < -2.5) map.src = '45.png'; // Left Side
         else if (angle >= -2.5 && angle < -1.5) map.src = '23Q.png'; // Top Point
-        else map.src = '23Q_45.png'; // Right Side
+        else map.src = '23Q.png'; // Right Side
     }
 });
 
