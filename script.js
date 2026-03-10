@@ -15,9 +15,9 @@ function drawTriangle(dotX = null, dotY = null) {
 
     // Draw Labels
     ctx.font = "14px Arial";
-    ctx.fillText("Quickest", 150, 35);
-    ctx.fillText("Min Transfers", 50, 270);
-    ctx.fillText("Min Walking", 250, 270);
+    ctx.fillText("Quickest", 120, 35);
+    ctx.fillText("Min Transfers", 20, 270);
+    ctx.fillText("Min Walking", 230, 270);
 
     // Draw the Blue Dot
     if (dotX !== null) {
