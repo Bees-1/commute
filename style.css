@@ -61,8 +61,8 @@ canvas {
     position: absolute;
     top: 0px;    /* Distance from top edge */
     left: 0px;   /* Distance from left edge (change to 'right' if preferred) */
-    width: 209px;
-    height: 274px;
+    width: 228px;
+    height: 299px;
     pointer-events: none; /* Allows clicks to pass through to the map if needed */
     border: 1px solid rgba(0,0,0,0.1); /* Optional: subtle border for the key */
 }
