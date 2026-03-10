@@ -25,7 +25,7 @@ function drawTriangle(dotX = null, dotY = null) {
     ctx.font = "14px Arial";
     ctx.fillText("Quickest", 125, 40);
     ctx.fillText("Min Transfers", 20, 280);
-    ctx.fillText("Min Walk", 230, 280);
+    ctx.fillText("Min Walk", 220, 280);
 
     if (dotX !== null) {
         ctx.fillStyle = "blue";
