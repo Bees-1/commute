@@ -1,16 +1,52 @@
 body {
     display: flex;
+    flex-direction: column; /* Stack Title above the content */
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+.main-title {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    font-weight: bold;
+    color: #333;
 }
 
 .main-wrapper {
-    display: flex; /* Aligns items horizontally */
-    align-items: center;
-    gap: 40px;
+    display: flex;
+    flex-direction: row; /* Triangle and Map side-by-side */
+    align-items: flex-start;
+    gap: 60px;
 }
 
-canvas { border: 2px solid #333; cursor: pointer; }
-#mapView { width: 600px; height: 600px; border: 2px solid #333; }
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers subtitle over its box */
+}
+
+.subtitle {
+    margin-bottom: 15px;
+    font-weight: normal;
+    font-size: 1.2rem;
+    color: #666;
+    align-self: flex-start; /* Aligns "Priorities" and "Route" to the left edge of boxes */
+    padding-left: 5px;
+}
+
+canvas {
+    border: 2px solid #333;
+    cursor: crosshair;
+    background-color: #fcfcfc;
+}
+
+#mapView {
+    width: 600px;
+    height: 600px;
+    border: 2px solid #333;
+    display: block;
+}
