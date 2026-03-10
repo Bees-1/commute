@@ -1,13 +1,13 @@
 const canvas = document.getElementById('triangle');
 const ctx = canvas.getContext('2d');
 const map = document.getElementById('mapView');
+const key = document.getElementById('keyView'); // Added key selector
 const cx = 150, cy = 183, radius = 30;
 
-// Helper to check if point is inside
 function isInsideTriangle(x, y) {
-    const x1 = 150, y1 = 50;  // Top
-    const x2 = 50,  y2 = 250; // Left
-    const x3 = 250, y3 = 250; // Right
+    const x1 = 150, y1 = 50;
+    const x2 = 50,  y2 = 250;
+    const x3 = 250, y3 = 250;
     const denominator = (y2 - y3) * (x1 - x3) + (x3 - x2) * (y1 - y3);
     const a = ((y2 - y3) * (x - x3) + (x3 - x2) * (y - y3)) / denominator;
     const b = ((y3 - y1) * (x - x3) + (x1 - x3) * (y - y3)) / denominator;
@@ -40,30 +40,35 @@ canvas.addEventListener('click', (e) => {
     const y = e.clientY - rect.top;
 
     if (!isInsideTriangle(x, y)) {
-        // Clicked outside: Clear the map and the dot
         map.src = 'blank.png'; 
-        drawTriangle(); // Draw empty triangle (no dot)
+        key.src = 'blankR.png'; // Update key to blank
+        drawTriangle(); 
         return;
     }
 
-    // Inside: Proceed with route selection
     drawTriangle(x, y);
 
     const dx = x - cx;
     const dy = y - cy;
     const dist = Math.sqrt(dx * dx + dy * dy);
 
+    let imgBase = '';
+
     if (dist < radius) {
-        map.src = '23.png';
+        imgBase = '23';
     } else {
         const angle = Math.atan2(dy, dx);
-        if (angle > -0.5 && angle < 0.5) map.src = 'M1.png';
-        else if (angle >= 0.5 && angle < 1.5) map.src = 'M1.png';
-        else if (angle >= 1.5 && angle < 2.5) map.src = '23.png';
-        else if (angle >= 2.5 || angle < -2.5) map.src = '45.png';
-        else if (angle >= -2.5 && angle < -1.5) map.src = '23Q.png';
-        else map.src = '23Q.png';
+        if (angle > -0.5 && angle < 0.5) imgBase = 'M1';
+        else if (angle >= 0.5 && angle < 1.5) imgBase = 'M1';
+        else if (angle >= 1.5 && angle < 2.5) imgBase = '23';
+        else if (angle >= 2.5 || angle < -2.5) imgBase = '45';
+        else if (angle >= -2.5 && angle < -1.5) imgBase = '23Q';
+        else imgBase = '23Q';
     }
+
+    // Set both images
+    map.src = imgBase + '.png';
+    key.src = imgBase + 'R.png';
 });
 
 drawTriangle();
