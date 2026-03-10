@@ -2,14 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Commute Selector</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1 class="main-title">Commute Calculator</h1>
+
     <div class="main-wrapper">
-        <canvas id="triangle" width="300" height="300"></canvas>
-        <img id="mapView" src="blank.png" alt="Select a route preference">
+        <div class="column">
+            <h3 class="subtitle">Priorities:</h3>
+            <canvas id="triangle" width="300" height="300"></canvas>
+        </div>
+
+        <div class="column">
+            <h3 class="subtitle">Chosen Route:</h3>
+            <img id="mapView" src="blank.png" alt="Map">
+        </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
