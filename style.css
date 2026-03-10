@@ -4,24 +4,13 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    font-family: sans-serif;
 }
 
 .main-wrapper {
-    display: flex;
-    flex-direction: column; /* Stacks items vertically */
+    display: flex; /* Aligns items horizontally */
     align-items: center;
-    gap: 20px;
+    gap: 40px;
 }
 
-canvas {
-    border: 2px solid #333;
-    cursor: pointer;
-    background-color: #f9f9f9;
-}
-
-#mapView {
-    width: 600px;
-    height: 600px; /* Matching your requested size */
-    border: 2px solid #333;
-}
+canvas { border: 2px solid #333; cursor: pointer; }
+#mapView { width: 600px; height: 600px; border: 2px solid #333; }
