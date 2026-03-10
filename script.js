@@ -12,9 +12,9 @@ function drawTriangle(dotX = null, dotY = null) {
     ctx.closePath(); ctx.stroke();
 
     // Draw the Central Circle
-    ctx.beginPath();
-    ctx.arc(cx, cy, radius, 0, Math.PI * 2);
-    ctx.stroke();
+ //   ctx.beginPath();
+   // ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+ //   ctx.stroke();
 
     // Labels
     ctx.font = "14px Arial";
